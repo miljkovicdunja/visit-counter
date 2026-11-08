@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    image: visit-counter
+    env_file: .env
+    ports: 
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on: 
+      redis: 
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck: 
+      test:
+        - CMD
+        - python
+        - -c
+        - "import os, urllib.request; urllib.request.urlopen('http://localhost:' + os.environ['APP_PORT'] + '/health')"
+      interval: 10s
+      timeout: 3s
+      retries: 3
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  redis-data:
+        
