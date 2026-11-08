@@ -20,7 +20,7 @@ def get_redis():
         host=os.environ["REDIS_HOST"],
         port=int(os.environ["REDIS_PORT"]),
         socket_connect_timeout=2,
-        decode_response=True,
+        decode_responses=True,
     )
 
 @app.after_request
