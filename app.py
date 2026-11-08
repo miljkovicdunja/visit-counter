@@ -35,5 +35,13 @@ def visits():
     count=get_redis().incr("visits")
     return jsonify(visits=count)
 
+@app.get("/health")
+def health():
+    try:
+        get_redis().ping()
+    except redis.exceptions.RedisError:
+        return jsonify(status="error"), 503
+    return jsonify(status="ok")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ["APP_PORT"]))
