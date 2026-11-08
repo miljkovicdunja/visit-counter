@@ -1,0 +1,1 @@
+![CI](https://github.com/miljkovicdunja/visit-counter/actions/workflows/ci.yml/badge.svg)
