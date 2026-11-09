@@ -166,7 +166,7 @@ Ako bilo koji korak ne prođe, pipeline pada.
 
 ## Korišćeni alati
 
-- Claude (AI asistent) – za objašnjenje koncepata (Docker, Compose, CI, Bash), pomoć oko konfiguracije i pomoć pri čitanju grešaka. Svaki deo koda sam prošla i razumela pre commita.
+- Claude (AI asistent) – za objašnjenje koncepata (Docker, Compose, CI, Bash), pomoć oko konfiguracije, pomoć pri čitanju grešaka i pri strukturi i formulaciji README-ja. Svaki deo koda sam prošla i razumela pre commita.
 - Zvanična dokumentacija: Docker, Docker Compose, Flask, GitHub Actions
 - YouTube - uvod u GitHub Actions, Docker Compose.
 - VS Code + WSL2 (Ubuntu), Docker Desktop
